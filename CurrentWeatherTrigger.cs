@@ -40,7 +40,7 @@ namespace WeatherApp.Function
                             }
                             else 
                             {
-                                return new OkObjectResult($"OpenweathermapAPI returned status code: {info.cod}");
+                                return new OkObjectResult($"OpenweathermapAPI returned status code: {info.cod}, {info.message}");
                             }
                         }
                     }

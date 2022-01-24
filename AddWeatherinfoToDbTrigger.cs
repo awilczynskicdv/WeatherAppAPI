@@ -28,7 +28,7 @@ namespace WeatherApp.Function
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    using (HttpResponseMessage res = await client.GetAsync($"https://api.openweathermap.org/data/2.5/weather?q={cityName}&lon={lon}&lat={lat}&appid={APIKey}"))
+                    using (HttpResponseMessage res = await client.GetAsync($"https://api.openweathermap.org/data/2.5/weather?q={cityName}&lon={lon}&lat={lat}&appid={APIKey}&units=metric"))
                     {
                         using (HttpContent content = res.Content)
                         {
@@ -47,7 +47,7 @@ namespace WeatherApp.Function
                             }
                             else 
                             {
-                                return new OkObjectResult($"OpenweathermapAPI returned status code: {info.cod}");
+                                return new OkObjectResult($"OpenweathermapAPI returned status code: {info.cod}, {info.message}");
                             }
                         }
                     }
